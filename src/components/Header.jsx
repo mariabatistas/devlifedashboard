@@ -1,0 +1,26 @@
+import { useState } from "react";
+import Relogio from "./Relogio";
+
+function Header() {
+  const [mostrarRelogio, setMostrarRelogio] = useState(true);
+
+  return (
+    <header className="bg-slate-900 text-white px-8 py-4 flex items-center justify-between shadow-md">
+      <h1 className="text-2xl font-bold">
+        DevLife <span className="text-emerald-400">Dashboard</span>
+      </h1>
+
+      <div className="flex items-center gap-3">
+        {mostrarRelogio && <Relogio />}
+        <button
+          onClick={() => setMostrarRelogio(!mostrarRelogio)}
+          className="text-xs border border-slate-600 hover:border-emerald-400 px-3 py-1 rounded-lg transition-colors text-slate-300 hover:text-white"
+        >
+          {mostrarRelogio ? "Esconder relógio" : "Mostrar relógio"}
+        </button>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
